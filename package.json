@@ -27,11 +27,6 @@
 	"author": "rektide de la faye",
 	"license": "MIT",
 	"type": "module",
-	"exports": {
-		"./instance-provider": "./dist/instance-provider.mjs",
-		"./true-myth": "./dist/true-myth.mjs",
-		"./*": "./*"
-	},
 	"dependencies": {
 		"@microsoft/fast-element": "^2.9.0"
 	},
@@ -47,5 +42,24 @@
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.15"
 	},
-	"module": "./dist/true-myth.mjs"
+	"module": "./dist/true-myth.mjs",
+	"exports": {
+		"./instance-provider": {
+			"types": "./dist/instance-provider.d.mjs",
+			"import": "./dist/instance-provider.mjs"
+		},
+		"./true-myth": {
+			"types": "./dist/true-myth.d.mjs",
+			"import": "./dist/true-myth.mjs"
+		},
+		"./*": {
+			"types": "./*",
+			"import": "./*"
+		},
+		"./instance-provider.ts": "./instance-provider.ts",
+		"./true-myth.ts": "./true-myth.ts",
+		".": {
+			"import": "./true-myth.ts"
+		}
+	}
 }

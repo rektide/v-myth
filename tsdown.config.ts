@@ -6,7 +6,22 @@ export default defineConfig({
 	exports: {
 		all: true,
 		customExports(pkg, context) {
-			console.log({ context, pkg })
+			for (const exp in pkg) {
+				const path = pkg[exp]
+				const dts = path.replace(/.mjs$/, ".d.mjs")
+				pkg[exp] = {
+					types: dts,
+					import: path,
+				}
+
+				if (path == "./*") continue
+				const ts = exp + ".ts"
+				//const ts = path.replace(/.mjs$/, ".ts");
+				pkg[`${exp}.ts`] = ts
+			}
+			pkg["."] = {
+				import: "./true-myth.ts",
+			}
 			return pkg
 		},
 	},
