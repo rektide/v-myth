@@ -2,8 +2,8 @@
 	"name": "v-myth",
 	"version": "1.0.0",
 	"description": "WebComponent forms for TrueMyth elements",
-	"main": "dist/v-selector.js",
-	"types": "dist/v-selector.d.ts",
+	"main": "./dist/true-myth.mjs",
+	"types": "./dist/true-myth.d.mts",
 	"scripts": {
 		"build:types": "tsc",
 		"build:js": "tsc --project tsconfig.build.json",
@@ -28,10 +28,9 @@
 	"license": "MIT",
 	"type": "module",
 	"exports": {
-		".": {
-			"import": "./dist/v-selector.js",
-			"types": "./dist/v-selector.d.ts"
-		}
+		"./instance-provider": "./dist/instance-provider.mjs",
+		"./true-myth": "./dist/true-myth.mjs",
+		"./*": "./*"
 	},
 	"dependencies": {
 		"@microsoft/fast-element": "^2.9.0"
@@ -47,5 +46,6 @@
 		"tsdown": "^0.17.2",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.15"
-	}
+	},
+	"module": "./dist/true-myth.mjs"
 }
