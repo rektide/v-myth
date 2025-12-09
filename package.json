@@ -2,8 +2,8 @@
 	"name": "v-myth",
 	"version": "1.0.0",
 	"description": "WebComponent forms for TrueMyth elements",
-	"main": "dist/v-selector.js",
-	"types": "dist/v-selector.d.ts",
+	"main": "./dist/true-myth.mjs",
+	"types": "./dist/true-myth.d.mts",
 	"scripts": {
 		"build:types": "tsc",
 		"build:js": "tsc --project tsconfig.build.json",
@@ -27,12 +27,6 @@
 	"author": "rektide de la faye",
 	"license": "MIT",
 	"type": "module",
-	"exports": {
-		".": {
-			"import": "./dist/v-selector.js",
-			"types": "./dist/v-selector.d.ts"
-		}
-	},
 	"dependencies": {
 		"@microsoft/fast-element": "^2.9.0"
 	},
@@ -47,5 +41,25 @@
 		"tsdown": "^0.17.2",
 		"typescript": "^5.9.3",
 		"vitest": "^4.0.15"
+	},
+	"module": "./dist/true-myth.mjs",
+	"exports": {
+		"./instance-provider": {
+			"types": "./dist/instance-provider.d.mjs",
+			"import": "./dist/instance-provider.mjs"
+		},
+		"./true-myth": {
+			"types": "./dist/true-myth.d.mjs",
+			"import": "./dist/true-myth.mjs"
+		},
+		"./*": {
+			"types": "./*",
+			"import": "./*"
+		},
+		"./instance-provider.ts": "./instance-provider.ts",
+		"./true-myth.ts": "./true-myth.ts",
+		".": {
+			"import": "./true-myth.ts"
+		}
 	}
 }
