@@ -1,0 +1,51 @@
+{
+	"name": "v-myth",
+	"version": "1.0.0",
+	"description": "WebComponent forms for TrueMyth elements",
+	"main": "dist/v-selector.js",
+	"types": "dist/v-selector.d.ts",
+	"scripts": {
+		"build:types": "tsc",
+		"build:js": "tsc --project tsconfig.build.json",
+		"build:tsdown": "tsdown",
+		"build": "npm run build:types && npm run build:js && npm run build:tsdown",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"test:ui": "vitest --ui",
+		"dev": "tsc --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://archive.voodoowarez.com/v-selector"
+	},
+	"keywords": [
+		"web-components",
+		"query-selector",
+		"signals",
+		"fast-element"
+	],
+	"author": "rektide de la faye",
+	"license": "MIT",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/v-selector.js",
+			"types": "./dist/v-selector.d.ts"
+		}
+	},
+	"dependencies": {
+		"@microsoft/fast-element": "^2.9.0"
+	},
+	"devDependencies": {
+		"@oxc-transform/binding-linux-x64-gnu": "^0.102.0",
+		"@types/node": "^24.10.1",
+		"@vitest/browser": "^4.0.15",
+		"happy-dom": "^20.0.11",
+		"jsdom": "^27.3.0",
+		"oxc-transform": "^0.102.0",
+		"ts-node": "^10.9.2",
+		"tsdown": "^0.17.2",
+		"typescript": "^5.9.3",
+		"vitest": "^4.0.15"
+	}
+}
